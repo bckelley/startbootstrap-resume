@@ -20,21 +20,48 @@ h3,
 h4,
 h5,
 h6 {
-    text-transform: uppercase;
+    text-transform: capitalize;
+}
+
+a {
+    text-transform: none;
 }
 
 h1 {
     line-height: 1;
 }
 
-p.lead {
+p.lead, p.card-text {
     font-size: 1.15rem;
     font-weight: 400;
 }
 
 .subheading {
     font-family: $headings-font-family;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 500;
     font-size: 1.5rem;
+}
+
+[data-md-tooltip] {
+    position: relative;
+}
+[data-md-tooltip]:before {
+    content: attr(data-md-tooltip);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    padding: 8px;
+    transform: translateX(-50%) scale(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: top;
+    background: #616161e6;
+    color: white;
+    border-radius: 2px;
+    font-size: 12px;
+    font-family: Roboto,sans-serif;
+    font-weight: 400;
+}
+[data-md-tooltip]:hover:before {
+    transform: translateX(-50%) scale(1);
 }
